@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  servidor:
+    build:
+      context: ./servidor
+    ports:
+      - "5002:5002"
+
+  cliente:
+    build:
+      context: ./cliente
+    ports:
+      - "5003:5003"
+    environment:
+      - SERVIDOR_URL=http://servidor:5002
+    depends_on:
+      - servidor

@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  centralizado:
+    image: malquinaguirre98/conversioncentralizado
+    ports:
+      - "5000:5000"
