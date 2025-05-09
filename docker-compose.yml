@@ -1,15 +1,20 @@
 version: '3.8'
 
 services:
+  # Sistema centralizado (puerto 5000)
+  centralizado:
+    build: ./centralizado
+    ports:
+      - "5000:5000"
+
+  # Sistema distribuido
   servidor:
-    build:
-      context: ./servidor
+    build: ./distribuido/servidor
     ports:
       - "5002:5002"
 
   cliente:
-    build:
-      context: ./cliente
+    build: ./distribuido/cliente
     ports:
       - "5003:5003"
     environment:
